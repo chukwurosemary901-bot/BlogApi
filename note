@@ -1,0 +1,11 @@
+in this blog i.e content;
+Use sequelize.text: 
+blog title: varchar
+iso country codes/ currency codes cah
+if you ue char(10); and write 'hello' it will give 'hello     ' leaving the five spaces
+if you need it back in your nodejs it will apper like that leaving the five spacees ,  so what you need do is that use .trim()
+sequelize(.string) is a bridge between jAVASCRIPT and your database(varchar
+libraries:
+* bcrypt: hash password
+* nodemon : automatically run my server
+* mullet : store images/ videos (post)
