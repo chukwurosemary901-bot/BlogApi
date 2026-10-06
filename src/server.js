@@ -4,16 +4,23 @@ import { Router } from 'express';
 import { configuration } from './config/env.js';
 import { sequelize } from './config/sequelize.js';
 import { mainRouter } from './utils/routes.js';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import cors from 'cors'
 
 const app = express()
+const uploadDirectory = join(dirname(fileURLToPath(import.meta.url)), 'uploads')
+console.log(uploadDirectory);
 
 const router = Router()
 
+app.use(cors())
+
 app.use(express.json())
 
+app.use('/uploads', express.static(uploadDirectory))
+// app.use('/uploads',express.static('uploads'))
 app.use(mainRouter)
-app.use(router)
-
 
 
     router.get('/starting/:id/products', (req, res) =>{
@@ -40,6 +47,8 @@ try {
     
 }
 })
+
+app.use(router)
 
 
 

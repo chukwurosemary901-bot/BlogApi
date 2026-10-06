@@ -10,7 +10,7 @@ export const sanitize = async (value) => {
 
 const { password, role, status, is_Verified, bloggerID, gender,D_O_B, 
     
-    country_code, is_Blogger,id, updatedAt,createdAt, ...sanitizedData } = plainUser;
+    country_code, is_Blogger, updatedAt,createdAt, ...sanitizedData } = plainUser;
 
 console.log('plain', plainUser);
 

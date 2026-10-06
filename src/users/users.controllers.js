@@ -19,10 +19,12 @@ const allUsers = await viewAllBloggers()
 
 console.log('All usrers',allUsers);
 
-const yourResult = await Promise.all( allUsers.map((user) => sanitize(user)))
+const allBloggers = await Promise.all( allUsers.map((user) => sanitize(user)))
      
+console.log(allUsers);
 
-return res.status(200).json({ message: 'All Users', yourResult })
+
+return res.status(200).json({ message: 'All Users', allBloggers })
 
 
 } catch (error) {
@@ -177,6 +179,9 @@ export const loginControllers  = async (req, res) => {
         await findEmailExists.reload()
 
         const yourProfile = await sanitize(findEmailExists)
+
+        // console.log('Import', fileURLToPath( import.meta.url))
+        
         
         return res.status(200).json({ message: 'You have just logged in successfully', yourProfile, access })
         
