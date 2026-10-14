@@ -1,12 +1,14 @@
+import { configuration } from "./env"
+
 export default {
   development: 
   {
-    username: "postgres",
-    password: "669900",
-    database: "Blog Api",
-    host: "localhost",
+    username: configuration.DB.user,
+    password: configuration.DB.password,
+    database: configuration.DB.name,
+    host: configuration.DB.host,
     dialect: "postgres"
-  }
+  },
   // "test": {
   //   "username": "root",
   //   "password": null,
@@ -14,11 +16,14 @@ export default {
   //   "host": "127.0.0.1",
   //   "dialect": "mysql"
   // },
-  // "production": {
-  //   "username": "root",
-  //   "password": null,
-  //   "database": "database_production",
-  //   "host": "127.0.0.1",
-  //   "dialect": "mysql"
-  // }
+//   production: {
+//       use_env_variable: "DATABASE_URL",
+//       dialect: "postgres",
+//       dialectOptions: {
+//   ssl: {
+//     require: true,
+//     rejectUnauthorized: false
+//   }
+// }
+//   }
 }

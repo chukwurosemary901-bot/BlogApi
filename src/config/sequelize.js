@@ -10,3 +10,16 @@ export const sequelize = new Sequelize(configuration.DB.name, configuration.DB.u
   dialect:   'postgres' 
   
 });
+
+// const isProduction = configuration.APP.nodeEnv === 'production';
+
+// export const sequelize = new Sequelize(configuration.APP.dataBaseURL, {
+//     logging: false,
+//     dialect: 'postgres',
+//     dialectOptions : {
+//         ssl: isProduction ? {
+//             require: true,
+//             rejectUnauthorized: false
+//         }: false
+//     }
+// })

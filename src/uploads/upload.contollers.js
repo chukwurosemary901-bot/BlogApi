@@ -16,6 +16,7 @@ export const uploadProfilePicture = async (req, res) => {
     }
 
     console.log('Request file', req.file);
+    console.log('Request file', req.file.filename);
     
     const profilePicture = `/uploads/${req.file.filename}`
 //     { const imageUrl = `${req.protocol}://${req.get('host')}${profilePicture}`

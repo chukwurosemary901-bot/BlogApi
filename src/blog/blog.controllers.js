@@ -201,11 +201,25 @@ export const viewAllBlog = async (req, res) => {
 
     try {
         
-        const userLoggedIn = req.user.id
+        // const userLoggedIn = req.user.id
 
         const allBlogs = await Blog.findAll()
 
-        return res.status(200).json({message: 'All Blogs', allBlogs})
+        // console.log('All Blogs', allBlogs.map((y) => y.toJSON()));
+        
+        const findUser = await Blog.findAll({
+            include: {
+                model: User,
+                as: 'contentCreator'
+            }
+        })
+
+        const allBloggers = findUser.map((blog) => blog.toJSON())
+
+        console.log('conten Creator', findUser.map((x) => x.toJSON()));
+        
+
+        return res.status(200).json({message: 'All Blogs', allBloggers})
 
     } catch (error) {
         

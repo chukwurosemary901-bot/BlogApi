@@ -11,7 +11,7 @@ User.hasMany(Blog, {
 
 Blog.belongsTo( User, {
     foreignKey: 'bloggerID',
-    as: 'content_Creator'
+    as: 'contentCreator'
 })
 
 User.hasMany( Comment, {
